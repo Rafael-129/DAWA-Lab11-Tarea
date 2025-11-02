@@ -1,36 +1,208 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Dashboard de Proyectos - DAWA Lab 11
 
-## Getting Started
+Un dashboard completo para gestión de proyectos, tareas y equipos desarrollado con **Next.js 16**, **React 19**, **TypeScript** y **shadcn/ui**.
 
-First, run the development server:
+## ✨ Características Principales
 
+### 🎨 **Componentes shadcn/ui Implementados**
+- ✅ **Spinner** - Indicadores de carga realistas
+- ✅ **Alert** - Notificaciones y validaciones
+- ✅ **Calendar** - Selector de fechas interactivo
+- ✅ **Pagination** - Navegación por páginas
+- ✅ **Popover** - Contenedores flotantes
+
+### 📊 **Funcionalidades del Dashboard**
+- **📋 Gestión de Proyectos** - CRUD completo con validaciones
+- **✅ Gestión de Tareas** - Asignación, estados y fechas límite
+- **👥 Gestión de Equipos** - Miembros, roles y posiciones
+- **⚙️ Configuración** - Personalización de la aplicación
+- **📈 Métricas en Tiempo Real** - Dashboard con estadísticas dinámicas
+
+### 🛠️ **Tecnologías Utilizadas**
+- **Framework**: Next.js 16 con React 19
+- **Lenguaje**: TypeScript 100%
+- **Estilos**: Tailwind CSS v4
+- **Componentes**: shadcn/ui + Radix UI
+- **Estado**: React Context API
+- **Fechas**: date-fns + react-day-picker
+
+## 🚀 Instalación y Ejecución
+
+### Prerrequisitos
+- Node.js 18+ 
+- npm, yarn, pnpm o bun
+
+### Pasos de Instalación
+
+1. **Clonar el repositorio**
+```bash
+git clone <repository-url>
+cd next-shadcn-ui
+```
+
+2. **Instalar dependencias**
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+3. **Ejecutar en desarrollo**
 ```bash
 npm run dev
 # or
 yarn dev
 # or
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. **Abrir en el navegador**
+```
+http://localhost:3000
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+5. **Acceder al Dashboard**
+```
+http://localhost:3000/dashboard
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📱 Navegación del Dashboard
 
-## Learn More
+### 🏠 **Resumen**
+- Métricas en tiempo real
+- Actividad reciente del equipo
+- Estadísticas de proyectos y tareas
 
-To learn more about Next.js, take a look at the following resources:
+### 📁 **Proyectos**
+- ➕ Crear nuevos proyectos
+- 👁️ Ver detalles completos
+- ✏️ Editar información
+- 🗑️ Eliminar proyectos
+- 👥 Asignar miembros del equipo
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### ✅ **Tareas**
+- 📋 Tabla paginada de tareas
+- 🎯 Estados: Pendiente, En Progreso, Completado
+- 🚨 Prioridades: Baja, Media, Alta, Urgente
+- 📅 Fechas límite con indicadores de vencimiento
+- 👤 Asignación a miembros del equipo
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 👥 **Equipo**
+- 👤 CRUD completo de miembros
+- 📋 Campos: nombre, email, rol, posición, teléfono, fecha nacimiento
+- ✅ Estado activo/inactivo
+- 🔗 Relación con proyectos
 
-## Deploy on Vercel
+### ⚙️ **Configuración**
+- 🏢 Información de la empresa
+- 🎨 Configuración de tema
+- 🌍 Idioma y zona horaria
+- 📧 Notificaciones por email
+- 🔗 Integración con Slack
+- 💾 Respaldo automático
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🏗️ Estructura del Proyecto
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+src/
+├── app/                    # App Router de Next.js
+│   ├── dashboard/          # Página principal del dashboard
+│   ├── globals.css         # Estilos globales
+│   └── layout.tsx          # Layout principal
+├── components/             # Componentes React
+│   ├── ui/                 # Componentes shadcn/ui
+│   ├── ConfigurationForm.tsx
+│   ├── ProjectActions.tsx
+│   ├── ProjectForm.tsx
+│   ├── TaskActions.tsx
+│   ├── TaskForm.tsx
+│   ├── TaskTable.tsx
+│   ├── TeamMemberActions.tsx
+│   └── TeamMemberForm.tsx
+├── context/                # Context API
+│   └── AppContext.tsx      # Estado global
+├── lib/                    # Utilidades
+│   ├── translations.ts     # Traducciones ES
+│   ├── types.ts           # Tipos TypeScript
+│   └── utils.ts           # Utilidades generales
+```
+
+## 🎯 **Características Técnicas**
+
+### 🔄 **Estado Global**
+- React Context API para gestión centralizada
+- Reducers para actualizaciones inmutables
+- Funciones helper para cálculos y relaciones
+
+### 🎨 **Diseño Responsivo**
+- Mobile-first approach
+- Breakpoints de Tailwind CSS
+- Componentes adaptables
+
+### ✅ **Validaciones**
+- Validación en tiempo real
+- Mensajes de error específicos
+- Estados de carga con spinners
+
+### 🔗 **Relaciones de Datos**
+- Proyectos ↔ Tareas
+- Proyectos ↔ Miembros del equipo
+- Tareas ↔ Miembros (asignación)
+
+### 🌐 **Internacionalización**
+- Traducciones en español
+- Formateo de fechas localizado
+- Indicadores de tiempo relativo
+
+## 📊 **Métricas del Dashboard**
+
+- **Total de Proyectos**: Contador dinámico
+- **Tareas Completadas**: Con porcentaje del total
+- **Horas Trabajadas**: Promedio por miembro
+- **Miembros Activos**: Con contador de inactivos
+
+## 🧪 **Comandos Disponibles**
+
+```bash
+# Desarrollo
+npm run dev
+
+# Compilación de producción
+npm run build
+
+# Iniciar en producción
+npm run start
+
+# Linting
+npm run lint
+```
+
+## 🎨 **Personalización del Tema**
+
+El proyecto utiliza un tema personalizado con colores púrpura/índigo:
+- Fondo: Gradiente `from-purple-50 to-indigo-100`
+- Primary: Tono púrpura personalizado
+- Componentes: Estilo shadcn/ui consistente
+
+## 🤝 **Contribución**
+
+1. Fork del proyecto
+2. Crear rama feature (`git checkout -b feature/AmazingFeature`)
+3. Commit cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abrir Pull Request
+
+## 📄 **Licencia**
+
+Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE.md](LICENSE.md) para detalles.
+
+## 👨‍💻 **Autor**
+
+Desarrollado para el curso DAWA - Lab 11
+Universidad Tecsup
+
+---
+
+⭐ **¡Si te gustó el proyecto, dale una estrella!** ⭐
