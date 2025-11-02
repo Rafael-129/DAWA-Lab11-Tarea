@@ -179,6 +179,125 @@ npm run start
 npm run lint
 ```
 
+## 🚀 **Deploy en Vercel**
+
+### 📋 **Preparación del Deploy**
+
+1. **Asegurar que el build funcione correctamente**
+```bash
+npm run build
+```
+
+2. **Verificar que no hay errores**
+```bash
+npm run start
+```
+
+### 🌐 **Opción 1: CLI de Vercel (Recomendado)**
+
+1. **Instalar Vercel CLI**
+```bash
+npm i -g vercel
+```
+
+2. **Iniciar sesión**
+```bash
+vercel login
+```
+
+3. **Deploy desde el directorio del proyecto**
+```bash
+vercel
+```
+
+4. **Deploy a producción**
+```bash
+vercel --prod
+```
+
+### 🐙 **Opción 2: GitHub + Vercel Dashboard**
+
+1. **Subir código a GitHub**
+```bash
+git add .
+git commit -m "Ready for Vercel deployment"
+git push origin main
+```
+
+2. **Configurar en Vercel**
+- Ve a [vercel.com](https://vercel.com) e inicia sesión
+- Click en "New Project"
+- Importa tu repositorio de GitHub
+- Vercel detectará automáticamente que es Next.js
+- Click en "Deploy"
+
+### 📁 **Opción 3: Manual (Drag & Drop)**
+
+1. **Crear build de producción**
+```bash
+npm run build
+```
+
+2. **Deploy manual**
+- Ve a [vercel.com/new](https://vercel.com/new)
+- Arrastra y suelta la carpeta del proyecto
+- Vercel se encargará del resto
+
+### ⚙️ **Configuración de Vercel**
+
+El proyecto incluye `vercel.json` con configuraciones optimizadas:
+
+```json
+{
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "outputDirectory": ".next",
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        }
+      ]
+    }
+  ]
+}
+```
+
+### 🔐 **Variables de Entorno (Opcional)**
+
+Si necesitas variables de entorno, agrégalas en el Dashboard de Vercel:
+
+```bash
+NEXT_PUBLIC_APP_URL=https://tu-app.vercel.app
+NEXT_PUBLIC_API_URL=https://api.tu-app.com
+```
+
+### ✅ **Verificación del Deploy**
+
+Después del deploy, tu aplicación estará disponible en:
+- **URL Principal**: `https://tu-proyecto.vercel.app`
+- **Dashboard**: `https://tu-proyecto.vercel.app/dashboard`
+
+### 🔧 **Dominios Personalizados**
+
+1. Ve a tu proyecto en Vercel Dashboard
+2. Click en "Settings" → "Domains"
+3. Agrega tu dominio personalizado
+4. Configura los registros DNS según las instrucciones
+
 ## 🎨 **Personalización del Tema**
 
 El proyecto utiliza un tema personalizado con colores púrpura/índigo:
